@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #fdf6ee;
+  --color-cream-dark: #f5e8d8;
+  --color-brown: #3d2b1f;
+  --color-brown-light: #7a5c48;
+  --color-brown-muted: #a08070;
+  --color-rose: #c9968a;
+  --color-rose-light: #e8c4bc;
+  --color-gold: #c9a87c;
+  --color-border: #e8d5c4;
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-noto);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #fdf6ee;
+  --foreground: #3d2b1f;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatPetal {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+.animate-delay-600 { animation-delay: 0.6s; opacity: 0; }
+.animate-delay-800 { animation-delay: 0.8s; opacity: 0; }
+.animate-delay-1000 { animation-delay: 1.0s; opacity: 0; }
+
+.section-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, #c9a87c, transparent);
+  margin: 0 auto;
+}
+
+.dot-divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.dot-divider::before,
+.dot-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c9a87c);
+}
+
+.dot-divider::after {
+  background: linear-gradient(to left, transparent, #c9a87c);
 }
