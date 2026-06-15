@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 
@@ -21,12 +21,18 @@ const notoSerif = Noto_Serif_KR({
   weight: ["300", "400", "600"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Andy & Kelly — Wedding Invitation",
-  description: "We are getting married. Please join us to celebrate our special day.",
+  description: "송범준 · 박경은 결혼식에 소중한 분들을 초대합니다. 2026년 9월 19일 토요일 오전 11시 30분, 아연당.",
   openGraph: {
     title: "Andy & Kelly — Wedding Invitation",
-    description: "We are getting married. Please join us to celebrate our special day.",
+    description: "송범준 · 박경은 결혼식에 소중한 분들을 초대합니다. 2026년 9월 19일 토요일 오전 11시 30분, 아연당.",
   },
 };
 

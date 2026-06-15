@@ -11,26 +11,26 @@ const transportItems: TransportItem[] = [
     icon: "🚇",
     title: "지하철",
     lines: [
-      "6호선 이태원역 3번 출구 (도보 약 5분)",
-      "4호선 삼각지역 12번 출구 (도보 약 10분)",
+      "신분당선 판교역 5번 출구 (택시 약 5분)",
+      "분당선 서현역 1번 출구 (택시 약 10분)",
     ],
   },
   {
     icon: "🚌",
     title: "버스",
     lines: [
-      "이태원역 정류장 하차",
-      "간선: 405, 421, 10-1",
-      "지선: 0015, 0016, 7011",
+      "판교백현로 방면 하차",
+      "광역: 9408, 9414",
+      "직행: 500, 1005-1",
     ],
   },
   {
     icon: "🚗",
     title: "자가용",
     lines: [
-      "그랜드 하얏트 서울 주차장 이용",
-      "서울특별시 용산구 소월로 322",
-      "네이버·카카오 지도: '그랜드 하얏트 서울' 검색",
+      "아연당 주차장 이용 가능",
+      "경기도 성남시 분당구 판교백현로 55-7",
+      "네이버·카카오 지도: '아연당' 검색",
     ],
   },
 ];
@@ -65,7 +65,7 @@ export default function DirectionsSection() {
         오시는 길
       </h2>
 
-      {/* Map placeholder */}
+      {/* Map image placeholder */}
       <div
         style={{
           width: "100%",
@@ -74,26 +74,78 @@ export default function DirectionsSection() {
           background: "#e8d5c4",
           borderRadius: "4px",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          marginBottom: "32px",
+          marginBottom: "16px",
           overflow: "hidden",
+          gap: "6px",
         }}
       >
-        <a
-          href="https://map.naver.com/v5/search/그랜드 하얏트 서울"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontFamily: "var(--font-noto), sans-serif",
-            fontSize: "13px",
-            color: "#7a5c48",
-            textDecoration: "underline",
-            textDecorationColor: "#c9a87c",
-          }}
-        >
-          지도 보기 →
-        </a>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z" fill="#a08070"/>
+        </svg>
+        <p style={{ fontFamily: "var(--font-noto), sans-serif", fontSize: "12px", color: "#a08070" }}>
+          경기도 성남시 분당구 판교백현로 55-7
+        </p>
+      </div>
+
+      {/* Map app buttons */}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "480px",
+          display: "flex",
+          gap: "8px",
+          marginBottom: "32px",
+        }}
+      >
+        {[
+          {
+            label: "네이버 지도",
+            href: "naver-maps://place?name=아연당&lat=37.3943&lng=127.1098",
+            fallback: "https://map.naver.com/v5/search/아연당",
+            color: "#03C75A",
+          },
+          {
+            label: "카카오맵",
+            href: "kakaomap://place?name=아연당&lat=37.3943&lng=127.1098",
+            fallback: "https://map.kakao.com/link/search/아연당",
+            color: "#FAE100",
+            textColor: "#3C1E1E",
+          },
+          {
+            label: "T맵",
+            href: "tmap://route?goalname=아연당&goaly=37.3943&goalx=127.1098",
+            fallback: "https://tmap.co.kr",
+            color: "#E8002D",
+          },
+        ].map(({ label, fallback, color, textColor }) => (
+          <a
+            key={label}
+            href={fallback}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              flex: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "10px 4px",
+              background: color,
+              borderRadius: "4px",
+              fontFamily: "var(--font-noto), sans-serif",
+              fontSize: "12px",
+              fontWeight: 500,
+              color: textColor ?? "#ffffff",
+              textDecoration: "none",
+              letterSpacing: "0.02em",
+              textAlign: "center",
+            }}
+          >
+            {label}
+          </a>
+        ))}
       </div>
 
       {/* Venue address */}
@@ -117,7 +169,7 @@ export default function DirectionsSection() {
             marginBottom: "8px",
           }}
         >
-          그랜드 하얏트 서울 그랜드볼룸
+          아연당 (AYEONDANG)
         </p>
         <p
           style={{
@@ -127,7 +179,7 @@ export default function DirectionsSection() {
             lineHeight: 1.8,
           }}
         >
-          서울특별시 용산구 소월로 322
+          경기도 성남시 분당구 판교백현로 55-7
         </p>
         <p
           style={{
@@ -137,7 +189,7 @@ export default function DirectionsSection() {
             marginTop: "4px",
           }}
         >
-          T. 02-797-1234
+          T. 031-000-0000
         </p>
       </div>
 

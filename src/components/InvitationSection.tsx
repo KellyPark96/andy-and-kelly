@@ -1,6 +1,6 @@
 export default function InvitationSection() {
   return (
-    <section className="w-full py-20 px-6 flex flex-col items-center text-center bg-[#fdf6ee]">
+    <section className="w-full py-20 px-6 flex flex-col items-center text-center">
       <div className="section-divider mb-12" />
 
       <p
@@ -41,19 +41,37 @@ export default function InvitationSection() {
           lineHeight: 2.2,
           color: "#7a5c48",
           wordBreak: "keep-all",
+          textAlign: "center",
         }}
       >
         <p>
-          서로를 바라보며 함께 걸어온 시간들이 모여
+          한참을 돌아보아도 늘 곁에 있던 우리,
           <br />
-          이제 하나의 길이 되었습니다.
+          9월 가을날, 평생 짝꿍이 되려 합니다.
         </p>
         <br />
         <p>
-          두 사람의 사랑이 시작되는 이 날,
+          오랜 기간 사랑해온 만큼,
           <br />
-          소중한 분들을 초대합니다.
+          더 깊게 아끼며 살겠습니다.
         </p>
+        <br />
+        <p>저희의 잔치에 귀한 걸음 해주시길 바랍니다.</p>
+      </div>
+
+      <div
+        style={{
+          marginTop: "28px",
+          fontFamily: "var(--font-noto-serif), serif",
+          fontSize: "13px",
+          color: "#a08070",
+          lineHeight: 2,
+          textAlign: "center",
+          letterSpacing: "0.03em",
+        }}
+      >
+        <p>송창의 · 김선영의 장남 <strong style={{ color: "#7a5c48" }}>송범준</strong></p>
+        <p>박범준 · 김경임의 장녀 <strong style={{ color: "#7a5c48" }}>박경은</strong></p>
       </div>
 
       <div className="section-divider mt-12" />

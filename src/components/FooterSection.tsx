@@ -1,6 +1,6 @@
 export default function FooterSection() {
   return (
-    <footer className="w-full py-20 px-6 flex flex-col items-center text-center bg-[#fdf6ee]">
+    <footer className="w-full py-20 px-6 flex flex-col items-center text-center">
       <p
         style={{
           fontFamily: "var(--font-noto-serif), serif",
@@ -68,7 +68,7 @@ export default function FooterSection() {
           letterSpacing: "0.15em",
         }}
       >
-        2026 · 09 · 12
+        2026 · 09 · 19
       </p>
 
       <p
