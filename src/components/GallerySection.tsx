@@ -32,7 +32,7 @@ export default function GallerySection() {
           textTransform: "uppercase",
         }}
       >
-        Gallery
+        Our Story
       </p>
       <h2
         style={{
@@ -44,7 +44,7 @@ export default function GallerySection() {
           marginBottom: "28px",
         }}
       >
-        Our Story
+        Gallery
       </h2>
 
       {/* Carousel */}
@@ -57,7 +57,10 @@ export default function GallerySection() {
             <div
               key={i}
               className="absolute inset-0 transition-opacity duration-500"
-              style={{ opacity: i === current ? 1 : 0, pointerEvents: i === current ? "auto" : "none" }}
+              style={{
+                opacity: i === current ? 1 : 0,
+                pointerEvents: i === current ? "auto" : "none",
+              }}
             >
               <Image
                 src={photo.src}
@@ -91,7 +94,13 @@ export default function GallerySection() {
             }}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M10 3L5 8l5 5" stroke="#3d2b1f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M10 3L5 8l5 5"
+                stroke="#3d2b1f"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
 
@@ -117,7 +126,13 @@ export default function GallerySection() {
             }}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 3l5 5-5 5" stroke="#3d2b1f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M6 3l5 5-5 5"
+                stroke="#3d2b1f"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
         </div>

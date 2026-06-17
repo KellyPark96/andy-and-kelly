@@ -51,7 +51,9 @@ export default function EventDetailsSection() {
             color: "#3d2b1f",
           }}
         >
-          September 19, 2026
+          2026
+          <br />
+          September 19
         </p>
         <p
           style={{

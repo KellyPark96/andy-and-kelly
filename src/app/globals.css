@@ -29,6 +29,7 @@
   html {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
     background: url(/bg-texture2.jpg) no-repeat center center fixed;
     background-size: cover;
   }

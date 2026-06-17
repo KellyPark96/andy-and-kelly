@@ -51,7 +51,7 @@ export default function CalendarSection() {
           marginBottom: "28px",
         }}
       >
-        2026 . September
+        September
       </p>
 
       <div style={{ width: "100%", maxWidth: "360px" }}>

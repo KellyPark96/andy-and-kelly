@@ -1,18 +1,6 @@
 export default function FooterSection() {
   return (
     <footer className="w-full py-20 px-6 flex flex-col items-center text-center">
-      <p
-        style={{
-          fontFamily: "var(--font-noto-serif), serif",
-          fontSize: "13px",
-          color: "#a08070",
-          letterSpacing: "0.2em",
-          marginBottom: "20px",
-        }}
-      >
-        두 사람의 이야기가 시작됩니다
-      </p>
-
       <h2
         style={{
           fontFamily: "var(--font-cormorant), serif",
