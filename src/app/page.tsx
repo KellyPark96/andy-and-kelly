@@ -11,7 +11,7 @@ import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
   return (
-    <main className="w-full h-full max-w-[480px] my-auto mx-auto overflow-hidden" style={{ backgroundImage: "url('/bg-texture.jpg')", backgroundRepeat: "repeat", backgroundSize: "auto" }}>
+    <main className="w-full max-w-[480px] mx-auto overflow-hidden">
       <CoverSection />
       <InvitationSection />
       <EventDetailsSection />

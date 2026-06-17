@@ -11,14 +11,39 @@ type Account = {
 
 const groom: Account[] = [
   { side: "신랑", name: "송범준", bank: "국민은행", number: "123-456-789012" },
-  { side: "신랑 부", name: "송창의", bank: "신한은행", number: "110-123-456789" },
-  { side: "신랑 모", name: "김선영", bank: "우리은행", number: "1002-123-456789" },
+  {
+    side: "신랑 부",
+    name: "송창의",
+    bank: "신한은행",
+    number: "110-123-456789",
+  },
+  {
+    side: "신랑 모",
+    name: "김선영",
+    bank: "우리은행",
+    number: "1002-123-456789",
+  },
 ];
 
 const bride: Account[] = [
-  { side: "신부", name: "박경은", bank: "카카오뱅크", number: "3333-12-3456789" },
-  { side: "신부 부", name: "박범준", bank: "하나은행", number: "123-456789-01234" },
-  { side: "신부 모", name: "김경임", bank: "농협은행", number: "123-1234-5678-12" },
+  {
+    side: "신부",
+    name: "박경은",
+    bank: "카카오뱅크",
+    number: "3333-12-3456789",
+  },
+  {
+    side: "신부 부",
+    name: "박범준",
+    bank: "하나은행",
+    number: "123-456789-01234",
+  },
+  {
+    side: "신부 모",
+    name: "김경임",
+    bank: "농협은행",
+    number: "123-1234-5678-12",
+  },
 ];
 
 function CopyButton({ text }: { text: string }) {
@@ -52,7 +77,13 @@ function CopyButton({ text }: { text: string }) {
   );
 }
 
-function AccountGroup({ title, accounts }: { title: string; accounts: Account[] }) {
+function AccountGroup({
+  title,
+  accounts,
+}: {
+  title: string;
+  accounts: Account[];
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -97,7 +128,13 @@ function AccountGroup({ title, accounts }: { title: string; accounts: Account[] 
             transition: "transform 0.2s",
           }}
         >
-          <path d="M2 4l5 5 5-5" stroke="#a08070" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M2 4l5 5 5-5"
+            stroke="#a08070"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
 
@@ -111,7 +148,8 @@ function AccountGroup({ title, accounts }: { title: string; accounts: Account[] 
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                borderBottom: i < accounts.length - 1 ? "1px solid #f5ede4" : "none",
+                borderBottom:
+                  i < accounts.length - 1 ? "1px solid #f5ede4" : "none",
               }}
             >
               <div>
@@ -148,7 +186,7 @@ function AccountGroup({ title, accounts }: { title: string; accounts: Account[] 
 
 export default function AccountSection() {
   return (
-    <section className="w-full py-16 px-6 flex flex-col items-center bg-[#f5ede3]">
+    <section className="w-full py-16 px-6 flex flex-col items-center bg-[#f7f7f7]">
       <div className="section-divider mb-12" />
 
       <p

@@ -81,7 +81,7 @@ export default function RSVPSection() {
   };
 
   return (
-    <section className="w-full py-16 px-6 flex flex-col items-center">
+    <section className="w-full py-16 px-6 flex flex-col items-center bg-[#fff]">
       <div className="section-divider mb-12" />
 
       <p
@@ -158,7 +158,10 @@ export default function RSVPSection() {
               소중한 자리에 함께해 주셔서 감사합니다.
             </p>
             <button
-              onClick={() => { setForm(initialForm); setSubmitted(false); }}
+              onClick={() => {
+                setForm(initialForm);
+                setSubmitted(false);
+              }}
               style={{
                 marginTop: "20px",
                 padding: "8px 20px",
@@ -175,7 +178,10 @@ export default function RSVPSection() {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <form
+            onSubmit={handleSubmit}
+            style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+          >
             {/* Name */}
             <div>
               <label style={labelStyle}>이름 *</label>
@@ -240,12 +246,19 @@ export default function RSVPSection() {
                 {/* Count */}
                 <div>
                   <label style={labelStyle}>참석 인원</label>
-                  <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "16px",
+                    }}
+                  >
                     <button
                       type="button"
                       onClick={() => set("count", Math.max(1, form.count - 1))}
                       style={{
-                        width: "32px", height: "32px",
+                        width: "32px",
+                        height: "32px",
                         border: "1px solid #e8d5c4",
                         borderRadius: "50%",
                         background: "#fdf6ee",
@@ -254,15 +267,26 @@ export default function RSVPSection() {
                         cursor: "pointer",
                         lineHeight: 1,
                       }}
-                    >−</button>
-                    <span style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "22px", color: "#3d2b1f", minWidth: "24px", textAlign: "center" }}>
+                    >
+                      −
+                    </button>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-cormorant), serif",
+                        fontSize: "22px",
+                        color: "#3d2b1f",
+                        minWidth: "24px",
+                        textAlign: "center",
+                      }}
+                    >
                       {form.count}
                     </span>
                     <button
                       type="button"
                       onClick={() => set("count", Math.min(10, form.count + 1))}
                       style={{
-                        width: "32px", height: "32px",
+                        width: "32px",
+                        height: "32px",
                         border: "1px solid #e8d5c4",
                         borderRadius: "50%",
                         background: "#fdf6ee",
@@ -271,7 +295,9 @@ export default function RSVPSection() {
                         cursor: "pointer",
                         lineHeight: 1,
                       }}
-                    >+</button>
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
 
@@ -286,7 +312,11 @@ export default function RSVPSection() {
                         onClick={() => set("meal", m)}
                         style={form.meal === m ? chipActive : chipBase}
                       >
-                        {m === "meat" ? "육류" : m === "fish" ? "해산물" : "채식"}
+                        {m === "meat"
+                          ? "육류"
+                          : m === "fish"
+                            ? "해산물"
+                            : "채식"}
                       </button>
                     ))}
                   </div>
@@ -301,13 +331,19 @@ export default function RSVPSection() {
               style={{
                 width: "100%",
                 padding: "14px",
-                background: loading || !form.name || !form.side || !form.attendance ? "#e8d5c4" : "#c9a87c",
+                background:
+                  loading || !form.name || !form.side || !form.attendance
+                    ? "#e8d5c4"
+                    : "#c9a87c",
                 border: "none",
                 borderRadius: "2px",
                 fontFamily: "var(--font-noto), sans-serif",
                 fontSize: "14px",
                 color: "#fff",
-                cursor: loading || !form.name || !form.side || !form.attendance ? "not-allowed" : "pointer",
+                cursor:
+                  loading || !form.name || !form.side || !form.attendance
+                    ? "not-allowed"
+                    : "pointer",
                 letterSpacing: "0.1em",
                 transition: "background 0.2s",
               }}

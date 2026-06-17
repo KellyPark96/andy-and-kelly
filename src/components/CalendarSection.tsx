@@ -25,7 +25,7 @@ export default function CalendarSection() {
   while (cells.length % 7 !== 0) cells.push(null);
 
   return (
-    <section className="w-full py-16 px-6 flex flex-col items-center">
+    <section className="w-full py-16 px-6 flex flex-col items-center bg-[#f7f7f7]">
       <div className="section-divider mb-12" />
 
       <p
@@ -129,10 +129,10 @@ export default function CalendarSection() {
                         color: isWedding
                           ? "#ffffff"
                           : isSun
-                          ? "#c9968a"
-                          : isSat
-                          ? "#7a9ac9"
-                          : "#3d2b1f",
+                            ? "#c9968a"
+                            : isSat
+                              ? "#7a9ac9"
+                              : "#3d2b1f",
                         lineHeight: "32px",
                         display: "inline-block",
                         width: "32px",

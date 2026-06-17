@@ -9,9 +9,21 @@ type Message = {
 };
 
 const sampleMessages: Message[] = [
-  { name: "이민지", text: "두 분 결혼 진심으로 축하해요! 늘 행복하세요 😊", date: "2026.06.10" },
-  { name: "박준서", text: "앤디형 켈리누나 결혼 축하드려요! 오래오래 행복하세요!", date: "2026.06.12" },
-  { name: "김서연", text: "너무 잘 어울리는 커플! 결혼을 진심으로 축하드립니다 ✨", date: "2026.06.14" },
+  {
+    name: "이민지",
+    text: "두 분 결혼 진심으로 축하해요! 늘 행복하세요 😊",
+    date: "2026.06.10",
+  },
+  {
+    name: "박준서",
+    text: "앤디형 켈리누나 결혼 축하드려요! 오래오래 행복하세요!",
+    date: "2026.06.12",
+  },
+  {
+    name: "김서연",
+    text: "너무 잘 어울리는 커플! 결혼을 진심으로 축하드립니다 ✨",
+    date: "2026.06.14",
+  },
 ];
 
 export default function GuestbookSection() {
@@ -27,7 +39,10 @@ export default function GuestbookSection() {
     const today = new Date();
     const dateStr = `${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, "0")}.${String(today.getDate()).padStart(2, "0")}`;
 
-    setMessages((prev) => [{ name: name.trim(), text: text.trim(), date: dateStr }, ...prev]);
+    setMessages((prev) => [
+      { name: name.trim(), text: text.trim(), date: dateStr },
+      ...prev,
+    ]);
     setName("");
     setText("");
     setSubmitted(true);
@@ -35,7 +50,7 @@ export default function GuestbookSection() {
   };
 
   return (
-    <section className="w-full py-16 px-6 flex flex-col items-center bg-[#f5ede3]">
+    <section className="w-full py-16 px-6 flex flex-col items-center bg-[#f7f7f7]">
       <div className="section-divider mb-12" />
 
       <p
@@ -128,7 +143,14 @@ export default function GuestbookSection() {
                 resize: "none",
               }}
             />
-            <p style={{ fontFamily: "var(--font-noto), sans-serif", fontSize: "11px", color: "#c0a898", textAlign: "right" }}>
+            <p
+              style={{
+                fontFamily: "var(--font-noto), sans-serif",
+                fontSize: "11px",
+                color: "#c0a898",
+                textAlign: "right",
+              }}
+            >
               {text.length}/200
             </p>
           </div>
@@ -163,7 +185,14 @@ export default function GuestbookSection() {
                 padding: "14px 16px",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "6px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  marginBottom: "6px",
+                }}
+              >
                 <span
                   style={{
                     fontFamily: "var(--font-noto-serif), serif",

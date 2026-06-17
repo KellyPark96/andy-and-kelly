@@ -1,6 +1,6 @@
 export default function InvitationSection() {
   return (
-    <section className="w-full py-20 px-6 flex flex-col items-center text-center">
+    <section className="w-full py-20 px-6 flex flex-col items-center text-center bg-[#f7f7f7]">
       <div className="section-divider mb-12" />
 
       <p
@@ -14,22 +14,10 @@ export default function InvitationSection() {
       >
         우 리 , 결 혼 합 니 다
       </p>
-
-      <h2
-        style={{
-          fontFamily: "var(--font-cormorant), serif",
-          fontSize: "clamp(32px, 8vw, 52px)",
-          fontWeight: 300,
-          letterSpacing: "0.05em",
-          color: "#3d2b1f",
-          lineHeight: 1.2,
-          marginBottom: "32px",
-        }}
+      <div
+        className="dot-divider mb-10"
+        style={{ width: "100%", maxWidth: "200px" }}
       >
-        Andy<span style={{ fontStyle: "italic", margin: "0 12px" }}>and</span>Kelly
-      </h2>
-
-      <div className="dot-divider mb-10" style={{ width: "100%", maxWidth: "200px" }}>
         <span style={{ color: "#c9a87c", fontSize: "18px" }}>✦</span>
       </div>
 
@@ -52,8 +40,7 @@ export default function InvitationSection() {
         <br />
         <p>
           오랜 기간 사랑해온 만큼,
-          <br />
-          더 깊게 아끼며 살겠습니다.
+          <br />더 깊게 아끼며 살겠습니다.
         </p>
         <br />
         <p>저희의 잔치에 귀한 걸음 해주시길 바랍니다.</p>
@@ -70,8 +57,14 @@ export default function InvitationSection() {
           letterSpacing: "0.03em",
         }}
       >
-        <p>송창의 · 김선영의 장남 <strong style={{ color: "#7a5c48" }}>송범준</strong></p>
-        <p>박범준 · 김경임의 장녀 <strong style={{ color: "#7a5c48" }}>박경은</strong></p>
+        <p>
+          송창의 · 김선영의 장남{" "}
+          <strong style={{ color: "#7a5c48" }}>송범준</strong>
+        </p>
+        <p>
+          박범준 · 김경임의 장녀{" "}
+          <strong style={{ color: "#7a5c48" }}>박경은</strong>
+        </p>
       </div>
 
       <div className="section-divider mt-12" />

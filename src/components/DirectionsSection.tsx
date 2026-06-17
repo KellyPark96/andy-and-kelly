@@ -18,11 +18,7 @@ const transportItems: TransportItem[] = [
   {
     icon: "🚌",
     title: "버스",
-    lines: [
-      "판교백현로 방면 하차",
-      "광역: 9408, 9414",
-      "직행: 500, 1005-1",
-    ],
+    lines: ["판교백현로 방면 하차", "광역: 9408, 9414", "직행: 500, 1005-1"],
   },
   {
     icon: "🚗",
@@ -37,7 +33,7 @@ const transportItems: TransportItem[] = [
 
 export default function DirectionsSection() {
   return (
-    <section className="w-full py-16 px-6 flex flex-col items-center bg-[#f5ede3]">
+    <section className="w-full py-16 px-6 flex flex-col items-center bg-[#fff]">
       <div className="section-divider mb-12" />
 
       <p
@@ -83,9 +79,18 @@ export default function DirectionsSection() {
         }}
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z" fill="#a08070"/>
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"
+            fill="#a08070"
+          />
         </svg>
-        <p style={{ fontFamily: "var(--font-noto), sans-serif", fontSize: "12px", color: "#a08070" }}>
+        <p
+          style={{
+            fontFamily: "var(--font-noto), sans-serif",
+            fontSize: "12px",
+            color: "#a08070",
+          }}
+        >
           경기도 성남시 분당구 판교백현로 55-7
         </p>
       </div>
