@@ -67,7 +67,6 @@ export default function InvitationSection() {
         </p>
       </div>
 
-      <div className="section-divider mt-12" />
     </section>
   );
 }

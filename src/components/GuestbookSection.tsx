@@ -229,7 +229,6 @@ export default function GuestbookSection() {
         </div>
       </div>
 
-      <div className="section-divider mt-12" />
     </section>
   );
 }

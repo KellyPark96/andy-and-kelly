@@ -52,26 +52,25 @@ src/
 │   └── page.tsx             # 전체 섹션 조합 + NavBar + ScrollToTop
 └── components/
     ├── NavBar.tsx               # 반응형 네비게이션 (모바일: 좌측 세로 사이드바 / PC: 상단 가로 바)
-    ├── ScrollToTop.tsx          # 우측 하단 맨위로 버튼 (scroll-to-top.png)
-    ├── CoverSection.tsx         # 풀스크린 커버 (배경 이미지 + 커플 이름 + 날짜)
+    ├── ScrollToTop.tsx          # 우측 하단 맨위로 버튼
+    ├── CoverSection.tsx         # 풀스크린 섹션 내 3:4 비율 이미지 + 텍스트 (이미지 아래 배치)
     ├── InvitationSection.tsx    # "우리, 결혼합니다" 오프닝 + 안내 문구
     ├── EventDetailsSection.tsx  # 날짜/시간/장소/혼주 정보 + 연락처 버튼
     ├── CalendarSection.tsx      # 9월 달력 (결혼 날짜 하이라이트)
-    ├── MessageSection.tsx       # 두 번째 사진 + 청첩 본문 메시지
-    ├── GallerySection.tsx       # 캐러셀 포토 갤러리
+    ├── GallerySection.tsx       # 캐러셀 포토 갤러리 (8장, 가로/세로 자동 감지)
     ├── DirectionsSection.tsx    # 지도 링크 + 교통편 안내
     ├── AccountSection.tsx       # 계좌번호 (토글 + 복사)
     ├── RSVPSection.tsx          # 참석 여부 폼
     ├── GuestbookSection.tsx     # 축하 메시지 방명록
-    └── FooterSection.tsx        # 클로징 (커플 이름 + 날짜)
+    └── FooterSection.tsx        # 클로징 (mainLogo.svg 400px + 날짜)
 ```
 
 ## 네비게이션 (NavBar.tsx)
 
 - **모바일 (< 480px)**: 좌측 고정 세로 사이드바 (36px 폭, `writing-mode: vertical-lr`)
-  - `main`에 `ml-9`(36px) 적용해 콘텐츠가 사이드바에 가려지지 않게 함
+  - `main`에 `w-[calc(100%-36px)] ml-9` 적용해 가로 overflow 없이 사이드바 여백 확보
   - `height: 100svh` 고정으로 뷰포트 높이 변화에도 아이템 위치 유지
-- **PC (≥ 480px)**: 상단 고정 가로 바
+- **PC (≥ 480px)**: 상단 고정 가로 바 (`min-[480px]:w-full min-[480px]:mx-auto`)
 - 현재 뷰포트에 보이는 섹션 탭이 골드(`#c9a87c`)로 강조됨 (IntersectionObserver)
 - 탭 클릭 시 `scrollIntoView({ behavior: "smooth" })`로 이동
 
@@ -99,21 +98,48 @@ src/
 | 장소 | 아연당 (AYEONDANG) |
 | 주소 | 경기도 성남시 분당구 판교백현로 55-7 |
 
-## 이미지 교체 방법
+## 이미지 및 에셋
 
-현재 실제 촬영 사진 사용 중 (`/photos/` 디렉토리). 교체 시:
+### public 폴더 구조
+```
+public/
+├── photos/          # 실제 웨딩 사진 (01.jpg ~ 08.jpg)
+├── mainLogo.svg     # 커플 로고 (FooterSection에 400px로 사용)
+├── bg-texture.jpg   # 배경 텍스처 (main 컨테이너에만 적용)
+└── ...
+```
 
-- **커버 사진**: `CoverSection.tsx` — Image `src` 교체
-- **두 번째 사진**: `MessageSection.tsx` — Image `src` 교체
-- **갤러리 6장**: `GallerySection.tsx` — `photos` 배열의 `src` 교체
+### 이미지 교체 방법
+- **커버 사진**: `CoverSection.tsx` — `/photos/01.jpg` (3:4 비율 컨테이너)
+- **갤러리 8장**: `GallerySection.tsx` — `photos` 배열 (`/photos/01.jpg` ~ `08.jpg`)
 
 외부 URL 이미지 사용 시 `next.config.ts`의 `remotePatterns`에 도메인 추가 필요.
 
-## 배경
+## 배경 (bg-texture)
 
-- `html`, `body` 모두 `bg-texture2.jpg` (fixed, center center, cover) 적용
-- iOS Safari overscroll 영역까지 텍스처로 덮기 위해 `html`에도 동일 배경 적용
-- `layout.tsx`의 `themeColor: "#fdf6ee"` 로 Safari 주소창 색상을 크림색으로 설정
+- `bg-texture.jpg`는 `main` 컨테이너(가운데 480px 영역)에만 `backgroundImage` inline style로 적용
+- 각 섹션 컴포넌트에는 배경색 없음 (투명) — 텍스처가 비쳐 보임
+- 버튼/인풋 등 UI 요소는 개별 `background` 색상 유지 (`#fdf6ee`, `#fff` 등)
+
+## CoverSection 레이아웃
+
+- 섹션 자체: `minHeight: 100svh`, flex 중앙 정렬
+- 이미지: `w-4/5` 너비의 3:4 비율 컨테이너, `object-cover`, `/photos/01.jpg`
+- 텍스트(WEDDING INVITATION, Andy & Kelly, 날짜): 이미지 **아래**에 크림 계열 색상으로 배치
+- 하단 스크롤 인디케이터(chevron) 유지
+
+## GallerySection 동작
+
+- 사진 8장 (`/photos/01.jpg` ~ `08.jpg`) 캐러셀
+- 각 이미지 `onLoad` 시 `naturalWidth > naturalHeight` 여부로 가로/세로 판별
+  - 세로 사진: `object-cover` (3:4 컨테이너 꽉 채움)
+  - 가로 사진: `object-contain` (짤리지 않게, letterbox)
+- 섹션 상단에 `section-divider` 있음
+
+## section-divider 규칙
+
+- 각 섹션 **상단**에만 배치 (`mb-12`)
+- 섹션 하단 divider는 없음
 
 ## 개발 서버
 

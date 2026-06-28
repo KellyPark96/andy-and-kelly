@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <NavBar />
       <ScrollToTop />
-      <main className="w-full max-w-[480px] ml-9 min-[480px]:mx-auto mr-auto overflow-hidden">
+      <main className="w-[calc(100%-36px)] ml-9 mr-0 max-w-[480px] min-[480px]:w-full min-[480px]:mx-auto overflow-hidden">
         <div id="cover"><CoverSection /></div>
         <InvitationSection />
         <div id="event"><EventDetailsSection /></div>

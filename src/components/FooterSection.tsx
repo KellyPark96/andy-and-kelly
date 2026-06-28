@@ -1,43 +1,15 @@
+import Image from "next/image";
+
 export default function FooterSection() {
   return (
     <footer className="w-full py-20 px-6 flex flex-col items-center text-center">
-      <h2
-        style={{
-          fontFamily: "var(--font-cormorant), serif",
-          fontSize: "clamp(28px, 7vw, 42px)",
-          fontWeight: 300,
-          letterSpacing: "0.1em",
-          color: "#3d2b1f",
-          marginBottom: "6px",
-        }}
-      >
-        Andy
-      </h2>
-
-      <div
-        style={{
-          fontFamily: "var(--font-cormorant), serif",
-          fontSize: "20px",
-          fontStyle: "italic",
-          color: "#c9a87c",
-          margin: "4px 0",
-        }}
-      >
-        &amp;
-      </div>
-
-      <h2
-        style={{
-          fontFamily: "var(--font-cormorant), serif",
-          fontSize: "clamp(28px, 7vw, 42px)",
-          fontWeight: 300,
-          letterSpacing: "0.1em",
-          color: "#3d2b1f",
-          marginBottom: "32px",
-        }}
-      >
-        Kelly
-      </h2>
+      <Image
+        src="/mainLogo.svg"
+        alt="Andy & Kelly"
+        width={400}
+        height={400}
+        style={{ marginBottom: "32px" }}
+      />
 
       <div
         style={{

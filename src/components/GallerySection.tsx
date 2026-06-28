@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 const photos = [
   { src: "/photos/01.jpg", alt: "Photo 1" },
@@ -16,12 +16,21 @@ const photos = [
 
 export default function GallerySection() {
   const [current, setCurrent] = useState(0);
+  const [landscape, setLandscape] = useState<Record<number, boolean>>({});
 
   const prev = () => setCurrent((c) => (c - 1 + photos.length) % photos.length);
   const next = () => setCurrent((c) => (c + 1) % photos.length);
 
+  const handleLoad = useCallback((i: number, e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget;
+    if (img.naturalWidth > img.naturalHeight) {
+      setLandscape((prev) => ({ ...prev, [i]: true }));
+    }
+  }, []);
+
   return (
     <section className="w-full py-16 flex flex-col items-center">
+      <div className="section-divider mb-12" />
       <p
         style={{
           fontFamily: "var(--font-noto), sans-serif",
@@ -51,7 +60,7 @@ export default function GallerySection() {
       <div className="relative w-full" style={{ maxWidth: "480px" }}>
         <div
           className="relative overflow-hidden"
-          style={{ aspectRatio: "3/4", background: "#f0e0d0" }}
+          style={{ aspectRatio: "3/4", background: "transparent" }}
         >
           {photos.map((photo, i) => (
             <div
@@ -66,8 +75,9 @@ export default function GallerySection() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                className="object-cover"
+                className={landscape[i] ? "object-contain" : "object-cover"}
                 priority={i === 0}
+                onLoad={(e) => handleLoad(i, e)}
               />
             </div>
           ))}

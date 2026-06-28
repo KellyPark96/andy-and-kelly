@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" width="520" height="380" role="img" aria-label="A&amp;K Botanical Frame">
+  <!--
+    Concept 05 — Botanical Frame
+    Two arched olive branches meet above the letters.
+    Colors: brown #3a2a1f, beige #b89a72, dark-brown #5a4332, muted #8a7a66.
+  -->
+  <g fill="none" stroke="#5a4332" stroke-width="1" stroke-linecap="round">
+    <path d="M120 180 Q 180 60 260 50"/>
+    <path d="M400 180 Q 340 60 260 50"/>
+  </g>
+  <g fill="#b89a72">
+    <ellipse cx="140" cy="160" rx="11" ry="4" transform="rotate(-60 140 160)"/>
+    <ellipse cx="148" cy="135" rx="12" ry="4.5" transform="rotate(-55 148 135)"/>
+    <ellipse cx="160" cy="110" rx="13" ry="5" transform="rotate(-48 160 110)"/>
+    <ellipse cx="178" cy="86" rx="12" ry="4.5" transform="rotate(-38 178 86)"/>
+    <ellipse cx="202" cy="68" rx="11" ry="4" transform="rotate(-25 202 68)"/>
+    <ellipse cx="228" cy="56" rx="10" ry="3.5" transform="rotate(-12 228 56)"/>
+    <ellipse cx="160" cy="148" rx="9" ry="3.5" transform="rotate(20 160 148)"/>
+    <ellipse cx="178" cy="120" rx="10" ry="4" transform="rotate(28 178 120)"/>
+    <ellipse cx="200" cy="92" rx="10" ry="4" transform="rotate(38 200 92)"/>
+
+    <ellipse cx="380" cy="160" rx="11" ry="4" transform="rotate(60 380 160)"/>
+    <ellipse cx="372" cy="135" rx="12" ry="4.5" transform="rotate(55 372 135)"/>
+    <ellipse cx="360" cy="110" rx="13" ry="5" transform="rotate(48 360 110)"/>
+    <ellipse cx="342" cy="86" rx="12" ry="4.5" transform="rotate(38 342 86)"/>
+    <ellipse cx="318" cy="68" rx="11" ry="4" transform="rotate(25 318 68)"/>
+    <ellipse cx="292" cy="56" rx="10" ry="3.5" transform="rotate(12 292 56)"/>
+    <ellipse cx="360" cy="148" rx="9" ry="3.5" transform="rotate(-20 360 148)"/>
+    <ellipse cx="342" cy="120" rx="10" ry="4" transform="rotate(-28 342 120)"/>
+    <ellipse cx="320" cy="92" rx="10" ry="4" transform="rotate(-38 320 92)"/>
+  </g>
+
+  <text x="190" y="290" text-anchor="middle"
+        font-family="'Cormorant Garamond',serif" font-weight="500" font-size="160" fill="#3a2a1f">A</text>
+  <text x="260" y="258" text-anchor="middle"
+        font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="400" font-size="60" fill="#b89a72">&amp;</text>
+  <text x="330" y="290" text-anchor="middle"
+        font-family="'Cormorant Garamond',serif" font-weight="500" font-size="160" fill="#3a2a1f">K</text>
+
+  <line x1="160" y1="320" x2="360" y2="320" stroke="#b89a72" stroke-width="0.8"/>
+  <text x="260" y="348" text-anchor="middle"
+        font-family="'Inter',sans-serif" font-size="10" letter-spacing="5" fill="#8a7a66">ANDY  AND  KELLY</text>
+</svg>

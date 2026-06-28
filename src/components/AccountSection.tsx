@@ -234,7 +234,6 @@ export default function AccountSection() {
         <AccountGroup title="신부측 계좌번호" accounts={bride} />
       </div>
 
-      <div className="section-divider mt-12" />
     </section>
   );
 }

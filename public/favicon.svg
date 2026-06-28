@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" role="img" aria-label="A&amp;K Botanical favicon">
+  <!-- Simplified leaves so it reads at 16px -->
+  <text x="190" y="300" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="600" font-size="220" fill="#3a2a1f">A</text>
+  <text x="260" y="260" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="100" fill="#b89a72">&amp;</text>
+  <text x="330" y="300" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="600" font-size="220" fill="#3a2a1f">K</text>
+  <ellipse cx="170" cy="120" rx="34" ry="10" transform="rotate(-30 170 120)" fill="#b89a72"/>
+  <ellipse cx="350" cy="120" rx="34" ry="10" transform="rotate(30 350 120)" fill="#b89a72"/>
+</svg>

@@ -249,7 +249,6 @@ export default function DirectionsSection() {
         ))}
       </div>
 
-      <div className="section-divider mt-12" />
     </section>
   );
 }
