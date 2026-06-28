@@ -67,11 +67,16 @@ src/
 
 ## 네비게이션 (NavBar.tsx)
 
-- **모바일 (< 480px)**: 좌측 고정 세로 사이드바 (36px 폭, `writing-mode: vertical-lr`)
-  - `main`에 `w-[calc(100%-36px)] ml-9` 적용해 가로 overflow 없이 사이드바 여백 확보
-  - `height: 100svh` 고정으로 뷰포트 높이 변화에도 아이템 위치 유지
-- **PC (≥ 480px)**: 상단 고정 가로 바 (`min-[480px]:w-full min-[480px]:mx-auto`)
-- 현재 뷰포트에 보이는 섹션 탭이 골드(`#c9a87c`)로 강조됨 (IntersectionObserver)
+- **모바일 (< 480px)**: 좌측 고정 세로 사이드바 (36px 폭)
+  - 최상단: `mainLogo_dark.svg` (35px) 홈 버튼 — 클릭 시 `#cover`로 스크롤
+  - 구분선 아래: 메뉴 항목들 (`writing-mode: vertical-lr`), `justifyContent: "center"`로 세로 중앙 정렬
+  - `main`에 `w-[calc(100%-36px)] ml-9 mr-0` 적용해 가로 overflow 방지
+- **PC (≥ 480px)**: 상단 고정 가로 바
+  - 좌측: `mainLogo_dark.svg` (35px) 홈 버튼 (`position: absolute, left: 16px`)
+  - 중앙: 메뉴 항목들 (`maxWidth: 480px` 컨테이너 내 중앙 정렬)
+- NAV_ITEMS: `#event`, `#gallery`, `#directions`, `#account`, `#rsvp`, `#guestbook` (6개)
+  - `#cover`는 NAV_ITEMS에 없지만 IntersectionObserver에는 포함 → 커버 섹션에서 어떤 탭도 강조되지 않음
+- 현재 뷰포트에 보이는 섹션 탭이 골드(`#c9a87c`)로 강조됨 (IntersectionObserver, threshold: 0.3)
 - 탭 클릭 시 `scrollIntoView({ behavior: "smooth" })`로 이동
 
 ## 섹션 ID (앵커 링크용)
@@ -103,9 +108,10 @@ src/
 ### public 폴더 구조
 ```
 public/
-├── photos/          # 실제 웨딩 사진 (01.jpg ~ 08.jpg)
-├── mainLogo.svg     # 커플 로고 (FooterSection에 400px로 사용)
-├── bg-texture.jpg   # 배경 텍스처 (main 컨테이너에만 적용)
+├── photos/           # 실제 웨딩 사진 (01.jpg ~ 08.jpg)
+├── mainLogo.svg      # 커플 로고 밝은 버전 (FooterSection에 400px로 사용)
+├── mainLogo_dark.svg # 커플 로고 다크 버전 (NavBar 홈 버튼에 사용)
+├── bg-texture.jpg    # 배경 텍스처 (main 컨테이너에만 적용)
 └── ...
 ```
 

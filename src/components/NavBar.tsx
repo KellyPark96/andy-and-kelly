@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const NAV_ITEMS = [
-  { label: "Andy&Kelly", href: "#cover" },
   { label: "일시/장소", href: "#event" },
   { label: "갤러리", href: "#gallery" },
   { label: "오시는길", href: "#directions" },
@@ -18,7 +18,9 @@ export default function NavBar() {
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
-    NAV_ITEMS.forEach(({ href }) => {
+    const allHrefs = ["#cover", ...NAV_ITEMS.map((i) => i.href)];
+
+    allHrefs.forEach((href) => {
       const el = document.getElementById(href.slice(1));
       if (!el) return;
       const observer = new IntersectionObserver(
@@ -51,7 +53,7 @@ export default function NavBar() {
     <>
       {/* 모바일: 왼쪽 세로 사이드바 */}
       <nav
-        className="flex flex-col items-center justify-center min-[480px]:hidden"
+        className="flex flex-col items-center min-[480px]:hidden"
         style={{
           position: "fixed",
           left: 0,
@@ -59,29 +61,41 @@ export default function NavBar() {
           bottom: 0,
           width: "36px",
           zIndex: 50,
-          gap: "2px",
-          paddingTop: "30svh",
-          justifyContent: "flex-start",
           background: "rgba(20, 15, 10, 0.78)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
         }}
       >
-        {NAV_ITEMS.map(({ label, href }) => (
-          <a
-            key={href}
-            href={href}
-            onClick={(e) => handleClick(e, href)}
-            style={{
-              ...linkStyle(href),
-              writingMode: "vertical-lr",
-              padding: "10px 0",
-              fontSize: "10px",
-            }}
-          >
-            {label}
-          </a>
-        ))}
+        {/* 홈 로고 */}
+        <a
+          href="#cover"
+          onClick={(e) => handleClick(e, "#cover")}
+          style={{ padding: "12px 0", flexShrink: 0 }}
+        >
+          <Image src="/mainLogo_dark.svg" alt="Home" width={35} height={35} />
+        </a>
+
+        {/* 구분선 */}
+        <div style={{ width: "16px", height: "1px", background: "rgba(255,255,255,0.15)", flexShrink: 0 }} />
+
+        {/* 나머지 메뉴 */}
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "2px" }}>
+          {NAV_ITEMS.map(({ label, href }) => (
+            <a
+              key={href}
+              href={href}
+              onClick={(e) => handleClick(e, href)}
+              style={{
+                ...linkStyle(href),
+                writingMode: "vertical-lr",
+                padding: "10px 0",
+                fontSize: "10px",
+              }}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
       </nav>
 
       {/* PC: 상단 가로 바 */}
@@ -98,13 +112,25 @@ export default function NavBar() {
           WebkitBackdropFilter: "blur(10px)",
         }}
       >
+        {/* 홈 로고 - 좌측 상단 고정 */}
+        <a
+          href="#cover"
+          onClick={(e) => handleClick(e, "#cover")}
+          style={{
+            position: "absolute",
+            left: "16px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Image src="/mainLogo_dark.svg" alt="Home" width={35} height={35} />
+        </a>
+
+        {/* 나머지 메뉴 중앙 정렬 */}
         <div style={{ maxWidth: "480px", margin: "0 auto" }}>
-          <div
-            style={{
-              display: "flex",
-              padding: "0 8px",
-            }}
-          >
+          <div style={{ display: "flex", padding: "0 8px", justifyContent: "center" }}>
             {NAV_ITEMS.map(({ label, href }) => (
               <a
                 key={href}
