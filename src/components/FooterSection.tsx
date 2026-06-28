@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function FooterSection() {
   return (
-    <footer className="w-full py-20 px-6 flex flex-col items-center text-center">
+    <footer className="w-full pt-20 pb-10 px-6 flex flex-col items-center text-center mb-30">
       <Image
         src="/mainLogo.svg"
         alt="Andy & Kelly"

@@ -64,6 +64,7 @@ export default function NavBar() {
           background: "rgba(20, 15, 10, 0.78)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
+          padding: "12px 0",
         }}
       >
         {/* 홈 로고 */}
@@ -79,7 +80,7 @@ export default function NavBar() {
         <div style={{ width: "16px", height: "1px", background: "rgba(255,255,255,0.15)", flexShrink: 0 }} />
 
         {/* 나머지 메뉴 */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "2px" }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", gap: "2px" }}>
           {NAV_ITEMS.map(({ label, href }) => (
             <a
               key={href}
