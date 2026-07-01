@@ -25,7 +25,7 @@ export default function Home() {
         <div id="directions"><DirectionsSection /></div>
         <div id="account"><AccountSection /></div>
         <div id="rsvp"><RSVPSection /></div>
-        <div id="guestbook"><GuestbookSection /></div>
+        {/* <div id="guestbook"><GuestbookSection /></div> */}
         <FooterSection />
       </main>
     </>

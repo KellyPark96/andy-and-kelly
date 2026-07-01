@@ -7,12 +7,10 @@ export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 300);
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.8);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  if (!visible) return null;
 
   return (
     <button
@@ -28,7 +26,9 @@ export default function ScrollToTop() {
         background: "none",
         cursor: "pointer",
         padding: 0,
-        opacity: 0.85,
+        opacity: visible ? 0.85 : 0,
+        pointerEvents: visible ? "auto" : "none",
+        transition: "opacity 0.2s",
       }}
       aria-label="맨 위로 이동"
     >

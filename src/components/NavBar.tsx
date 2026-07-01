@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { label: "오시는길", href: "#directions" },
   { label: "계좌번호", href: "#account" },
   { label: "참석확인", href: "#rsvp" },
-  { label: "방명록", href: "#guestbook" },
+  // { label: "방명록", href: "#guestbook" },
 ];
 
 export default function NavBar() {

@@ -28,9 +28,20 @@ export default function FooterSection() {
           letterSpacing: "0.15em",
         }}
       >
-        2026 · 09 · 19
+        2026 · 09 · 19<br />
       </p>
-
+      <p
+        style={{
+          fontFamily: "var(--font-noto), sans-serif",
+          fontSize: "11px",
+          color: "#c0a898",
+          marginTop: "32px",
+          letterSpacing: "0.05em",
+        }}
+      >
+        Developed by Kyeongeun Park<br />
+        Designed by Kyeongeun Park
+      </p>
       <p
         style={{
           fontFamily: "var(--font-noto), sans-serif",

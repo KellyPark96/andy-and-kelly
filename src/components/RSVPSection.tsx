@@ -8,7 +8,6 @@ type FormData = {
   side: "groom" | "bride" | "";
   attendance: "yes" | "no" | "";
   count: number;
-  meal: "meat" | "fish" | "vegetarian" | "";
 };
 
 const initialForm: FormData = {
@@ -17,7 +16,6 @@ const initialForm: FormData = {
   side: "",
   attendance: "",
   count: 1,
-  meal: "",
 };
 
 export default function RSVPSection() {
@@ -28,14 +26,23 @@ export default function RSVPSection() {
   const set = <K extends keyof FormData>(key: K, value: FormData[K]) =>
     setForm((f) => ({ ...f, [key]: value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.side || !form.attendance) return;
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const res = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
       setSubmitted(true);
-    }, 800);
+    } catch {
+      alert("전송에 실패했습니다. 다시 시도해 주세요.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputStyle: React.CSSProperties = {
@@ -301,26 +308,6 @@ export default function RSVPSection() {
                   </div>
                 </div>
 
-                {/* Meal */}
-                <div>
-                  <label style={labelStyle}>식사 선택</label>
-                  <div style={{ display: "flex", gap: "8px" }}>
-                    {(["meat", "fish", "vegetarian"] as const).map((m) => (
-                      <button
-                        key={m}
-                        type="button"
-                        onClick={() => set("meal", m)}
-                        style={form.meal === m ? chipActive : chipBase}
-                      >
-                        {m === "meat"
-                          ? "육류"
-                          : m === "fish"
-                            ? "해산물"
-                            : "채식"}
-                      </button>
-                    ))}
-                  </div>
-                </div>
               </>
             )}
 
