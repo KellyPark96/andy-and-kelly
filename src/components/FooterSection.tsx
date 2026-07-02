@@ -1,4 +1,5 @@
 import Image from "next/image";
+import KakaoShareButton from "./KakaoShareButton";
 
 export default function FooterSection() {
   return (
@@ -10,6 +11,8 @@ export default function FooterSection() {
         height={400}
         style={{ marginBottom: "32px" }}
       />
+
+      <KakaoShareButton />
 
       <div
         style={{

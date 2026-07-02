@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
+import KakaoInit from "@/components/KakaoInit";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -45,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${cormorant.variable} ${notoSans.variable} ${notoSerif.variable}`}>
       <body className="min-h-screen antialiased" style={{ fontFamily: "var(--font-noto), sans-serif" }}>
+        <KakaoInit />
         {children}
       </body>
     </html>
