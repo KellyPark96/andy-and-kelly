@@ -1,12 +1,19 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextRequest, NextResponse } from "next/server";
 
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_ANON_KEY!
-);
-
 export async function POST(req: NextRequest) {
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_ANON_KEY;
+
+  if (!url || !key) {
+    return NextResponse.json(
+      { error: "Supabase 환경변수 누락", url: !!url, key: !!key },
+      { status: 500 }
+    );
+  }
+
+  const supabase = createClient(url, key);
+
   const body = await req.json();
   const { name, phone, side, attendance, count } = body;
 
